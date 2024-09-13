@@ -1,4 +1,14 @@
 # ec10_RSA
+
+---
+
+Gabriel Mendes Rodrigues Oliveira        081200037
+Gabriel Nunes Alves Santos               081200038
+Matheus Vinicius Miranda Brito           081200024
+Matheus Vital dos Santos de Oliveira     081210042
+
+---
+
 Comunicação Segura com RSA e Sockets
 Este projeto demonstra uma comunicação segura entre um cliente e um servidor usando criptografia RSA, implementada em Python com sockets TCP.
 
