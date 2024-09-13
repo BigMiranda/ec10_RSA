@@ -91,6 +91,10 @@ print(f"phi(N): {phiN}")
 print(f"e (chave pública): {e}")
 print(f"d (chave privada): {d}")
 
+# Exibe as chaves geradas
+print("Chaves RSA geradas:")
+print(f"Chave pública (e, N): ({e}, {N})")
+print(f"Chave privada (d, N): ({d}, {N})")
 
 public_key = (e, N)
 private_key = (d, N)
@@ -104,15 +108,15 @@ print(" ")
 clientSocket.send(bytes(str(public_key), "utf-8"))
 
 # Recebe chave pública do servidor
-server_public_key = eval(clientSocket.recv(65000).decode("utf-8"))
+server_public_key = eval(clientSocket.recv(650000000).decode("utf-8"))
 
 # Teste de criptografia e envio
-sentence = "Segurança de informações é essencial.".upper()
+sentence = "The information security is of significant importance to ensure the privacy of communications".upper()
 encrypted_text = encrypt(sentence, server_public_key)
 clientSocket.send(bytes(str(encrypted_text), "utf-8"))
 
 # Recebe resposta do servidor e descriptografa
-encrypted_response = eval(clientSocket.recv(65000).decode("utf-8"))
+encrypted_response = eval(clientSocket.recv(650000000).decode("utf-8"))
 decrypted_response = decrypt(encrypted_response, private_key)
 
 print("\nTexto original:", sentence)
