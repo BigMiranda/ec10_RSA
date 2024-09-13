@@ -66,11 +66,14 @@ print(f"Conexão estabelecida com: {addr}")
 ## Gerar primos grandes para garantir um N de 4096 bits
 print("Etapa 1: Gerando os números primos p e q.")
 p = gerar_primo(2048)  # Gera o primo p de 2048 bits
+print("p: ", p)
+
 q = gerar_primo(2048)  # Gera o primo q de 2048 bits
+print("q: ", q)
 
 print("Etapa 2: Calculando N = p * q.")
 N = p * q  # Calcula N (parte da chave pública e privada)
-print(f"N (4096 bits): {N}")
+print(f"N: {N}")
 
 print("Etapa 3: Calculando φ(N) = (p-1) * (q-1).")
 phiN = (p - 1) * (q - 1)  # Calcula phi(N)
@@ -85,6 +88,18 @@ print("Etapa 4: Calculando a chave privada d.")
 d = define_d(phiN, e)  # Calcula o valor de d, chave privada
 print(f"d: {d}")
 
+
+# Exibir as chaves geradas
+print("Chaves geradas com sucesso:")
+print(f"p: {p}")
+print(f"q: {q}")
+print(f"N (4096 bits): {N}")
+print(f"phi(N): {phiN}")
+print(f"e (chave pública): {e}")
+print(f"d (chave privada): {d}")
+
+print(" ")
+
 # Exibe as chaves geradas
 print("Chaves RSA geradas:")
 print(f"Chave pública (e, N): ({e}, {N})")
@@ -94,15 +109,20 @@ print(f"Chave privada (d, N): ({d}, {N})")
 public_key = (e, N)
 private_key = (d, N)
 
+print(" ")
+print(" ")
+print(" ")
+print(" ")
+
 # Recebe chave pública do cliente
-client_public_key = eval(connectionSocket.recv(65000).decode("utf-8"))
+client_public_key = eval(connectionSocket.recv(650000000).decode("utf-8"))
 print(f"Chave pública recebida do cliente: {client_public_key}")
 
 # Envia a chave pública do servidor ao cliente
 connectionSocket.send(bytes(str(public_key), "utf-8"))
 
 # Recebe mensagem criptografada do cliente
-encrypted_message = eval(connectionSocket.recv(65000).decode("utf-8"))
+encrypted_message = eval(connectionSocket.recv(650000000).decode("utf-8"))
 print(f"Mensagem criptografada recebida: {encrypted_message}")
 
 # Decripta a mensagem usando a chave privada do servidor
