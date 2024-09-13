@@ -3,8 +3,11 @@
 ---
 
 Gabriel Mendes Rodrigues Oliveira        081200037
+
 Gabriel Nunes Alves Santos               081200038
+
 Matheus Vinicius Miranda Brito           081200024
+
 Matheus Vital dos Santos de Oliveira     081210042
 
 ---
